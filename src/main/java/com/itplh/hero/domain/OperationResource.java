@@ -1,8 +1,11 @@
 package com.itplh.hero.domain;
 
+import com.baomidou.mybatisplus.annotation.TableField;
+import com.itplh.hero.constant.BooleanStatus;
 import com.itplh.hero.constant.WorldMapEnum;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.data.relational.core.mapping.Table;
 
 import java.time.LocalDateTime;
 import java.time.ZoneOffset;
@@ -11,6 +14,7 @@ import java.util.stream.IntStream;
 
 @Data
 @Slf4j
+@Table("t_operation_resource")
 public class OperationResource {
 
     /**
@@ -39,18 +43,21 @@ public class OperationResource {
      * 默认值为false，表示不启用
      * recommend set value as true, if npc is large monster
      */
-    private boolean enableNoviceProtection;
+    private String enableNoviceProtection;
     /**
      * 全局操作对象
      */
+    @TableField(exist = false)
     private List<String> globalOperationObjects = Collections.EMPTY_LIST;
     /**
      * 全局操作步骤
      */
+    @TableField(exist = false)
     private List<String> globalOperationSteps = Collections.EMPTY_LIST;
     /**
      * 行动路线
      */
+    @TableField(exist = false)
     private List<Action> actions = Collections.EMPTY_LIST;
     /**
      * 上一次运行时间
@@ -104,7 +111,7 @@ public class OperationResource {
      * @return
      */
     public boolean isProtected(boolean isNovice) {
-        return enableNoviceProtection && isNovice;
+        return BooleanStatus.TRUE.getValue().equals(enableNoviceProtection) && isNovice;
     }
 
     public List<Action> allActions() {

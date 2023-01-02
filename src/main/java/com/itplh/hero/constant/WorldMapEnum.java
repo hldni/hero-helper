@@ -77,7 +77,6 @@ public enum WorldMapEnum {
 
     private String name;
     private String targetPageUniqueLinkName;
-
     /**
      * 目的地的地图传送点
      */
