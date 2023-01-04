@@ -1,3 +1,5 @@
+
+test;
 CREATE TABLE IF NOT EXISTS `t_region_user`(
    `id` INT UNSIGNED AUTO_INCREMENT,
    `sid` VARCHAR(255) NOT NULL,
