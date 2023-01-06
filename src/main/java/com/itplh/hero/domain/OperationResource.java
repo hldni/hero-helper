@@ -1,11 +1,11 @@
 package com.itplh.hero.domain;
 
 import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.TableName;
 import com.itplh.hero.constant.BooleanStatus;
 import com.itplh.hero.constant.WorldMapEnum;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.data.relational.core.mapping.Table;
 
 import java.time.LocalDateTime;
 import java.time.ZoneOffset;
@@ -14,7 +14,7 @@ import java.util.stream.IntStream;
 
 @Data
 @Slf4j
-@Table("t_operation_resource")
+@TableName("t_operation_resource")
 public class OperationResource {
 
     /**
